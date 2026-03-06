@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" ?>
+  <dpinst>
+
+    <!-- English -->
+    <language code="0x0409">
+    <dpinstTitle>ThinkPad UltraNav Driver Installation</dpinstTitle> 
+      <welcomeTitle>Welcome</welcomeTitle> 
+      <welcomeIntro>Welcome to the ThinkPad UltraNav Setup program. This program will install the ThinkPad UltraNav Driver on your computer.</welcomeIntro> 
+      <eulaHeaderTitle>Review the terms of the license agreement</eulaHeaderTitle>
+      <eulaYesButton>I accept this agreement</eulaYesButton>
+      <eulaNoButton>I do not accept this agreement</eulaNoButton>
+      <installHeaderTitle>Please wait while Setup finishes installing the driver.</installHeaderTitle> 
+      <finishTitle>Setup complete</finishTitle> 
+      <finishText>Setup has finished installing the ThinkPad UltraNav driver.</finishText> 
+      <eula type="txt" path="Eula0409ENU.tx_"/>
+    </language>
+
+    <!-- Chinese Traditional -->
+    <language code="0x0404">
+    <dpinstTitle>ThinkPad UltraNav 驅動程式安裝</dpinstTitle> 
+      <welcomeTitle>歡迎使用</welcomeTitle> 
+      <welcomeIntro>歡迎使用 ThinkPad UltraNav 安裝程式。該程式將在您的電腦上安裝 ThinkPad UltraNav 驅驅動程式。</welcomeIntro> 
+      <eulaHeaderTitle>檢視許可合約的條款</eulaHeaderTitle>
+      <eulaYesButton>我接受本合約</eulaYesButton>
+      <eulaNoButton>我不接受本合約</eulaNoButton>
+      <installHeaderTitle>安裝程式正在完成安裝驅動程式，請稍候。</installHeaderTitle> 
+      <finishTitle>安裝完成</finishTitle> 
+      <finishText>安裝程式已完成安裝 ThinkPad UltraNav 驅動程式。</finishText> 
+      <eula type="txt" path="Eula0404CHT.tx_"/>
+    </language>
+
+    <!-- Chinese Simplified -->
+    <language code="0x0804">
+    <dpinstTitle>ThinkPad UltraNav 驱动程序安装</dpinstTitle> 
+      <welcomeTitle>欢迎使用</welcomeTitle> 
+      <welcomeIntro>欢迎使用 ThinkPad UltraNav 安装程序。该程序将在您的计算机上安装 ThinkPad UltraNav 驱驱动程序。</welcomeIntro> 
+      <eulaHeaderTitle>查看许可协议的条款</eulaHeaderTitle>
+      <eulaYesButton>我接受本协议</eulaYesButton>
+      <eulaNoButton>我不接受本协议</eulaNoButton>
+      <installHeaderTitle>安装程序正在完成安装驱动程序，请稍候。</installHeaderTitle> 
+      <finishTitle>安装完成</finishTitle> 
+      <finishText>安装程序已完成安装 ThinkPad UltraNav 驱动程序。</finishText> 
+      <eula type="txt" path="Eula0804CHS.tx_"/>
+    </language>
+
+    <!-- Chinese Hong Kong -->
+    <language code="0x0C04">
+    <dpinstTitle>ThinkPad UltraNav 驅動程式安裝</dpinstTitle> 
+      <welcomeTitle>歡迎使用</welcomeTitle> 
+      <welcomeIntro>歡迎使用 ThinkPad UltraNav 安裝程式。該程式將在您的電腦上安裝 ThinkPad UltraNav 驅驅動程式。</welcomeIntro> 
+      <eulaHeaderTitle>檢視許可合約的條款</eulaHeaderTitle>
+      <eulaYesButton>我接受本合約</eulaYesButton>
+      <eulaNoButton>我不接受本合約</eulaNoButton>
+      <installHeaderTitle>安裝程式正在完成安裝驅動程式，請稍候。</installHeaderTitle> 
+      <finishTitle>安裝完成</finishTitle> 
+      <finishText>安裝程式已完成安裝 ThinkPad UltraNav 驅動程式。</finishText> 
+      <eula type="txt" path="Eula0C04ZHH.tx_"/>
+    </language>
+
+    <!-- Portuguese (Brazilian) -->
+    <language code="0x0416">
+    <dpinstTitle>Instalação do driver do ThinkPad UltraNav</dpinstTitle> 
+      <welcomeTitle>Bem-vindo(a)</welcomeTitle> 
+      <welcomeIntro>Bem-vindo(a) ao programa de instalação do ThinkPad UltraNav. Este programa instalará o driver do ThinkPad UltraNav em seu computador.</welcomeIntro> 
+      <eulaHeaderTitle>Revisar os termos do contrato de licença</eulaHeaderTitle>
+      <eulaYesButton>Aceito este contrato</eulaYesButton>
+      <eulaNoButton>Não aceito este contrato</eulaNoButton>
+      <installHeaderTitle>Aguarde enquanto o programa conlui a instalação do driver.</installHeaderTitle> 
+      <finishTitle>Instalação concluída</finishTitle> 
+      <finishText>O programa terminou a instalação do driver do ThinkPad UltraNav.</finishText> 
+      <eula type="txt" path="Eula0416PTB.tx_"/>
+    </language>
+
+    <!-- Russian -->
+    <language code="0x0419">
+    <dpinstTitle>ThinkPad UltraNav Driver Installation</dpinstTitle> 
+    <dpinstTitle>Установка драйвера ThinkPad UltraNav</dpinstTitle> 
+      <welcomeTitle>Добро пожаловать!</welcomeTitle> 
+      <welcomeIntro>Добро пожаловать в программу установки ThinkPad UltraNav. Эта программа установит на ваш компьютер драйвер ThinkPad UltraNav.</welcomeIntro> 
+      <eulaHeaderTitle>Ознакомьтесь с условиями лицензионного соглашения</eulaHeaderTitle>
+      <eulaYesButton>Я принимаю это соглашение</eulaYesButton>
+      <eulaNoButton>Я не принимаю это соглашение</eulaNoButton>
+      <installHeaderTitle>Пожалуйста, подождите, установка драйвера завершается.</installHeaderTitle> 
+      <finishTitle>Установка завершена</finishTitle> 
+      <finishText>Установка драйвера ThinkPad UltraNav завершена.</finishText> 
+      <eula type="txt" path="Eula0419RUS.tx_"/>
+    </language>
+
+    <!--  Danish  --> 
+  <language code="0x0406">
+    <dpinstTitle>Installation af ThinkPad UltraNav-styreprogram</dpinstTitle> 
+    <welcomeTitle>Velkommen</welcomeTitle> 
+    <welcomeIntro>ThinkPad UltraNav-installationsprogram. Dette program installerer ThinkPad UltraNav-styreprogrammet på computeren.</welcomeIntro> 
+    <eulaHeaderTitle>Gennemse licensaftalens vilkår</eulaHeaderTitle>
+    <eulaYesButton>Jeg accepterer denne aftale</eulaYesButton>
+    <eulaNoButton>Jeg accepterer ikke denne aftale</eulaNoButton>
+    <installHeaderTitle>Vent venligst mens installationsprogrammet udfører driverinstallationen.</installHeaderTitle> 
+    <finishTitle>Installationen er udført</finishTitle> 
+    <finishText>Installationsprogrammet har installeret ThinkPad UltraNav-styreprogrammet.</finishText> 
+    <eula type="txt" path="Eula0406DAN.tx_"/>
+  </language>
+
+   <!--  Dutch--> 
+   <language code="0x0413">
+     <dpinstTitle>Installatie ThinkPad UltraNav-stuurprogramma</dpinstTitle> 
+     <welcomeTitle>Welkom</welcomeTitle> 
+     <welcomeIntro>Welkom bij het setupprogramma van ThinkPad UltraNav. Met dit programma installeert u het ThinkPad UltraNav-stuurprogramma op uw computer.</welcomeIntro> 
+   <eulaHeaderTitle>Lees de voorwaarden van de licentieovereenkomst door</eulaHeaderTitle>
+   <eulaYesButton>Ik aanvaard deze overeenkomst</eulaYesButton>
+   <eulaNoButton>Ik aanvaard deze overeenkomst niet</eulaNoButton>
+     <installHeaderTitle>De installatie van het stuurprogramma wordt voltooid. Even geduld a.u.b.</installHeaderTitle> 
+     <finishTitle>De installatie is voltooid</finishTitle> 
+     <finishText>Setup heeft de installatie van het ThinkPad UltraNav- stuurprogrammavoltooid.</finishText> 
+     <eula type="txt" path="Eula0413NLD.tx_"/>
+  </language>
+
+  <!--  Finnish --> 
+  <language code="0x040B">
+    <dpinstTitle>ThinkPad UltraNav -ajurin asennus</dpinstTitle> 
+    <welcomeTitle>Tervetuloa</welcomeTitle> 
+    <welcomeIntro>ThinkPad UltraNav -asennusohjelman aloitus. Tämä ohjelma asentaa tietokoneeseen ThinkPad UltraNav -ajurin.</welcomeIntro> 
+   <eulaHeaderTitle>Perehdy lisenssisopimuksen ehtoihin</eulaHeaderTitle>
+   <eulaYesButton>Hyväksyn tämän sopimuksen</eulaYesButton>
+   <eulaNoButton>En hyväksy tätä sopimusta</eulaNoButton>
+    <installHeaderTitle>Odota, kunnes asennusohjelma saa ohjaimen asennettua.</installHeaderTitle> 
+    <finishTitle>Asennus on suoritettu</finishTitle> 
+    <finishText>Asennusohjelma on asentanut ThinkPad UltraNav -ajurin.</finishText> 
+    <eula type="txt" path="Eula040bFIN.tx_"/>
+  </language>
+
+    <!--  French (Neutral)  --> 
+  <language code="0x040C">
+    <dpinstTitle>Installation du pilote ThinkPad UltraNav</dpinstTitle> 
+    <welcomeTitle>Bienvenue</welcomeTitle> 
+    <welcomeIntro>Bienvenue dans le programme d'installation du pilote ThinkPad UltraNav. Ce programme installera le pilote de ThinkPad UltraNav sur votre ordinateur.</welcomeIntro> 
+   <eulaHeaderTitle>Consulter les modalités du contrat de licence</eulaHeaderTitle>
+   <eulaYesButton>J'accepte ce contrat</eulaYesButton>
+   <eulaNoButton>Je n'accepte pas ce contrat</eulaNoButton>
+    <installHeaderTitle>Veuillez attendre que l'installation du pilote soit terminée.</installHeaderTitle> 
+    <finishTitle>Installation terminée</finishTitle> 
+    <finishText>L'installation du pilote ThinkPad UltraNav est terminée.</finishText> 
+    <eula type="txt" path="Eula040cFRA.tx_"/>
+  </language>
+
+  <!--  German (Neutral) --> 
+    <language code="0x0407">
+    <dpinstTitle>ThinkPad-UltraNav-Treiber - Installation</dpinstTitle> 
+    <welcomeTitle>Begrüßung</welcomeTitle> 
+    <welcomeIntro>Willkommen beim Installationsprogramm für den ThinkPad-UltraNav-Treiber. Mit diesem Programm wird der Treiber auf dem Computer installiert.</welcomeIntro> 
+    <eulaHeaderTitle>Lesen Sie die Bedingungen des Lizenzvertrags</eulaHeaderTitle>
+    <eulaYesButton>Ich akzeptiere diesen Vertrag</eulaYesButton>
+    <eulaNoButton>Ich akzeptiere diesen Vertrag nicht</eulaNoButton>
+    <installHeaderTitle>Bitte warten Sie, bis der Treiber vollständig installiert ist.</installHeaderTitle> 
+    <finishTitle>Installation abgeschlossen</finishTitle> 
+    <finishText>IDie Installation des ThinkPad-UltraNav-Treibers ist abgeschlossen.</finishText> 
+    <eula type="txt" path="Eula0407DEU.tx_"/>
+  </language>
+
+  <!--  Italian --> 
+  <language code="0x0410">
+    <dpinstTitle>Installazione di ThinkPad UltraNav Driver</dpinstTitle> 
+    <welcomeTitle>Benvenuti</welcomeTitle> 
+    <welcomeIntro>Benvenuti nel programma di impostazione di ThinkPad UltraNav Driver. Questo programma installerà il driver UltraNav sul computer.</welcomeIntro> 
+    <eulaHeaderTitle>Rileggere le condizioni del contratto di licenza</eulaHeaderTitle>
+    <eulaYesButton>Accetto il contratto</eulaYesButton>
+    <eulaNoButton>Non accetto il contratto</eulaNoButton>
+    <installHeaderTitle>Si prega di attendere che l'applicazione completi l'installazione del driver.</installHeaderTitle> 
+    <finishTitle>Impostazione completata</finishTitle> 
+    <finishText>Il programma di impostazione ha terminato l'installazione di ThinkPad UltraNav Driver.</finishText> 
+    <eula type="txt" path="Eula0410ITA.tx_"/>
+  </language>
+
+  <!--  Norwegian (Bokmal) --> 
+  <language code="0x0414">
+    <dpinstTitle>Installering av ThinkPad UltraNav-driver</dpinstTitle> 
+    <welcomeTitle>Velkommen</welcomeTitle> 
+    <welcomeIntro>Velkommen til installeringsprogrammet for ThinkPad UltraNav. Dette programmet installerer ThinkPad UltraNav-driveren på maskinen.</welcomeIntro> 
+    <eulaHeaderTitle>Les gjennom vilkårene i lisensavtalen</eulaHeaderTitle>
+    <eulaYesButton>Jeg godtar denne avtalen</eulaYesButton>
+    <eulaNoButton>Jeg godtar ikke denne avtalen</eulaNoButton>
+   <installHeaderTitle>Vent litt mens installasjonsprogrammet avslutter driverinstalleringen.</installHeaderTitle> 
+    <finishTitle>Installasjonen er fullført</finishTitle> 
+    <finishText>Installeringen av ThinkPad UltraNav-driveren er ferdig.</finishText> 
+    <eula type="txt" path="Eula0414NOR.tx_"/>
+  </language>
+
+  <!--   Spanish (Neutral) --> 
+  <language code="0x0C0A">
+    <dpinstTitle>Instalación del controlador de ThinkPad UltraNav</dpinstTitle> 
+    <welcomeTitle>Bienvenido</welcomeTitle> 
+    <welcomeIntro>Bienvenido al programa Instalación de ThinkPad UltraNav. Este programa instalará el controlador de ThinkPad UltraNav en el sistema</welcomeIntro> 
+    <eulaHeaderTitle>Revise los términos del contrato de licencia</eulaHeaderTitle>
+    <eulaYesButton>Acepto este contrato</eulaYesButton>
+    <eulaNoButton>No acepto este contrato</eulaNoButton>
+    <installHeaderTitle>Espere mientras el programa termina de instalar el controlador.</installHeaderTitle> 
+    <finishTitle>Instalación completa</finishTitle> 
+    <finishText>Ha finalizado la instalación del controlador de ThinkPad UltraNav.</finishText> 
+    <eula type="txt" path="Eula0c0aESP.tx_"/>
+  </language>
+
+  <!--   Swedish (Neutral)  --> 
+  <language code="0x041D">
+    <dpinstTitle>Installera ThinkPad UltraNav-drivrutin</dpinstTitle> 
+    <welcomeTitle>Välkommen</welcomeTitle> 
+    <welcomeIntro>Välkommet till installationsprogrammet för ThinkPad UltraNav. Programmet installerar ThinkPad UltraNav-drivrutinen på datorn.</welcomeIntro> 
+    <eulaHeaderTitle>Läs igenom villkoren i detta licensavtal</eulaHeaderTitle>
+    <eulaYesButton>Jag godkänner detta avtal</eulaYesButton>
+    <eulaNoButton>Jag godkänner INTE detta avtal</eulaNoButton>
+    <installHeaderTitle>Vänta medan drivrutinen installeras.</installHeaderTitle> 
+    <finishTitle>Installationen är klar</finishTitle> 
+    <finishText>Installationsprogrammet har slutfört installationen av ThinkPad UltraNav-drivrutinen.</finishText> 
+    <eula type="txt" path="Eula041dSVE.tx_"/>
+  </language>
+
+  <!--  Japanese --> 
+  <language code="0x0411">
+    <dpinstTitle>ThinkPad UltraNavドライバーのインストール</dpinstTitle> 
+    <welcomeTitle>ようこそ</welcomeTitle> 
+    <welcomeIntro>ThinkPad UltraNavドライバー セットアップ プログラムへようこそ。このプログラムはコンピュータに ThinkPad UltraNavドライバーをインストールします。</welcomeIntro> 
+    <eulaHeaderTitle>使用許諾書の条項を確認する</eulaHeaderTitle>
+    <eulaYesButton>同意する</eulaYesButton>
+    <eulaNoButton>同意しない</eulaNoButton>
+    <installHeaderTitle>ﾄﾞﾗｲﾊﾞのｲﾝｽﾄｰﾙが終わるまでお待ちください。</installHeaderTitle> 
+    <finishTitle>ｾｯﾄｱｯﾌﾟ完了</finishTitle> 
+    <finishText>ThinkPad UltraNavドライバーのインストールが終わりました。</finishText> 
+    <eula type="txt" path="Eula0411JPN.tx_"/>
+  </language>
+
+    <legacyMode/>
+    <enableNotListedLanguages/>
+    <forceIfDriverIsNotBetter/>
+    <suppressAddRemovePrograms/>
+
+  </dpinst>

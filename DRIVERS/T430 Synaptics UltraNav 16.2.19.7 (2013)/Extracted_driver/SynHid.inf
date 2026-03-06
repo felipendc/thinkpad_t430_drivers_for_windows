@@ -1,0 +1,379 @@
+;----------------------------------------------------------------------------
+; SynHID.inf
+;
+; Installs Synaptics USB filter driver.
+; Copyright (c) 1996-2011 Synaptics Incorporated.
+;----------------------------------------------------------------------------
+
+
+[Version]
+Signature="$Windows NT$"
+Class=HIDClass
+ClassGUID={745a17a0-74d3-11d0-b6fe-00a0c90f57da}
+Provider=%Provider%
+CatalogFile=SynTP.cat
+DriverVer=04/17/2013, 16.2.19.7
+
+;----------------------------------------------------------------------------
+; Manufacturer Sections
+;----------------------------------------------------------------------------
+
+
+[Manufacturer]
+%SynMfg% = SynMfg, NTamd64 ; (Standard types)
+
+[SynMfg.NTamd64]
+%USB.SynDeviceDesc%=USB_Inst, USB\Vid_06CB&Pid_0001
+%USB.SynDeviceDesc%=USB_Inst, USB\Vid_06CB&Pid_0001&Col01
+%USB.SynDeviceDesc%=USB_Inst, USB\Vid_06CB&Pid_0002
+%USB.SynDeviceDesc%=USB_cPad_Inst, USB\Vid_06CB&Pid_0003
+%USB.SynDeviceDesc%=USB_Inst, USB\Vid_06CB&Pid_0006
+%USB.SynDeviceDesc%=USB_Inst, USB\Vid_06CB&Pid_0007
+%USB.SynDeviceDesc%=USB_Inst, USB\Vid_06CB&Pid_0008
+%USB_Comp.SynDeviceDesc%=USB_Inst, USB\Vid_06CB&Pid_0009&MI_00
+%USB_Comp.SynDeviceDesc%=USB_Inst, USB\Vid_06CB&Pid_0009&MI_01
+;%USB.SynDeviceDesc%=USB_Inst, USB\Vid_06CB&Pid_000E
+;%USB.SynDeviceDesc%=USB_Inst,GENERIC_HID_DEVICE,USB\Class_03&SubClass_01,USB\Class_03
+
+; DisplayPad (pre-release test version)
+%USB.SynDeviceDesc%=USB_DisplayPad.0_Inst, USB\Vid_04B4&Pid_1006
+%USB.SynDeviceDesc%=USB_DisplayPad_Inst, USB\Vid_06CB&Pid_0013
+
+; Wireless TouchPad (pre-release test version)
+%USB_Comp.SynDeviceDesc%=USB_Generic_Inst, USB\Vid_06CB&Pid_0010&MI_00
+%USB_Comp.SynDeviceDesc%=USB_WirelessTouchPad_Inst, USB\Vid_06CB&Pid_0010&MI_01
+
+%USB.SynDeviceDesc%=USB_Razer_Inst, USB\Vid_1532&Pid_002B&MI_00
+%USB.SynDeviceDesc%=USB_Razer_Inst, USB\Vid_1532&Pid_0114&MI_00
+%USB.SynDeviceDesc%=USB_Razer_Inst, USB\Vid_1532&Pid_0116&MI_00
+%USB.SynDeviceDesc%=USB_Razer_Inst, USB\Vid_1532&Pid_0117&MI_00
+
+%USB_Comp.SynDeviceDesc%=USB_Inst, USB\Vid_1915&Pid_003D&MI_00
+
+%USB_Comp.SynDeviceDesc%=USB_Inst, USB\Vid_413C&Pid_2507&MI_03
+
+%USB_Comp.SynDeviceDesc%=USB_Inst, USB\Vid_04F2&Pid_1209&MI_00
+%USB_Comp.SynDeviceDesc%=USB_Inst, USB\Vid_03F0&Pid_0241&MI_00
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+;----------------------------------------------------------------------------
+; Install Sections
+;----------------------------------------------------------------------------
+
+[SourceDisksNames]
+1=%DiskName%,,
+
+[SourceDisksFiles]
+SynTP.sys = 1
+WdfCoInstaller01009.dll = 1
+
+[DestinationDirs]
+DefaultDestDir = 12 ; Drivers directory
+CopyFiles_Drivers = 12 ; Drivers directory
+CopyFiles_CoInstaller = 11 ; System directory
+
+; Service Installation Sections
+
+[SynTP_Service_Inst]
+DisplayName    = %SynTP.SvcDesc%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_DEMAND_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %12%\SynTP.sys
+LoadOrderGroup = extended base
+AddReg	       = Service_AddReg
+
+[Service_AddReg]
+
+;----------------------------------------------------------------------------
+; Common File Copy and Registry Operations for All TouchPads
+;----------------------------------------------------------------------------
+
+; Drivers directory
+[CopyFiles_Drivers]
+SynTP.sys
+
+; System directory
+[CopyFiles_CoInstaller]
+WdfCoInstaller01009.dll
+
+;----------------------------------------------------------------------------
+; USB Generic
+;----------------------------------------------------------------------------
+
+[USB_Generic_Inst]
+include = Input.inf
+needs = HID_Inst.nt
+
+[USB_Generic_Inst.Services]
+include = Input.inf
+needs = HID_Inst.NT.Services
+
+[USB_Generic_Inst.HW]
+
+;----------------------------------------------------------------------------
+; USB TouchPad
+;----------------------------------------------------------------------------
+
+[USB_Inst]
+include = Input.inf
+needs = HID_Inst.nt
+CopyFiles = CopyFiles_Drivers
+
+[USB_Inst.Services]
+include = Input.inf
+needs = HID_Inst.NT.Services
+AddService = SynTP,,SynTP_Service_Inst
+
+[USB_Inst.HW]
+AddReg = USB_AddReg.HW
+
+[USB_AddReg.HW]
+; Install filter driver below hidusb.
+HKR,,"LowerFilters",0x00010000,"SynTP"
+HKR,,SynPortType,0x00010001,3
+HKR,,SelectiveSuspendEnabled,0x00010001,0
+
+; WDF Coinstaller installation
+[USB_Inst.CoInstallers]
+AddReg = USB_Inst.CoInstaller_AddReg
+CopyFiles = CopyFiles_CoInstaller
+
+[USB_Inst.CoInstaller_AddReg]
+HKR,,CoInstallers32,0x00010000,"WdfCoInstaller01009.dll,WdfCoInstaller"
+
+[USB_Inst.Wdf]
+KmdfService = SynTP, SynTP_WdfSect
+
+[SynTP_WdfSect]
+KmdfLibraryVersion = 1.9
+
+;----------------------------------------------------------------------------
+;----------------------------------------------------------------------------
+; Should not install on generic USB HID devices by default.
+; Labelling with an old date will then prefer the system generic driver.
+[USB_GenericInst]
+driverver = 00/00/0000
+include = Input.inf
+needs = HID_Inst.nt
+CopyFiles = CopyFiles_Drivers
+
+[USB_GenericInst.Services]
+include = Input.inf
+needs = HID_Inst.NT.Services
+AddService = SynTP,,SynTP_Service_Inst
+
+[USB_GenericInst.HW]
+AddReg = USB_AddReg.HW
+
+;----------------------------------------------------------------------------
+; USB_Razer TouchPad
+;----------------------------------------------------------------------------
+[USB_Razer_Inst]
+include = Input.inf
+needs = HID_Inst.nt
+CopyFiles = CopyFiles_Drivers
+
+[USB_Razer_Inst.Services]
+include = Input.inf
+needs = HID_Inst.NT.Services
+AddService = SynTP,,SynTP_Service_Inst
+
+[USB_Razer_Inst.HW]
+AddReg = USB_AddReg.HW, USB_Razer_AddReg.HW
+
+[USB_Razer_AddReg.HW]
+HKR,,ReadVendorRequest,0x00010001,1
+HKR,,req00$cmd0000,0x00000001,00,00,0A,07,00,02,A1,00
+HKR,,req00$cmd0001,0x00000001,00,00,30,3D,1D,C1,01,00
+HKR,,req00$cmd0002,0x00000001,00,00,00,32,00,00,02,00
+HKR,,req00$cmd0003,0x00000001,01,00,00,00,00,00,00,00
+HKR,,req00$cmd0004,0x00000001,01,00,00,00,00,00,00,00
+HKR,,reqF8$cmdC600,0x00000001,00,00,0A,07,00,02,A1,00
+
+; WDF Coinstaller installation
+[USB_Razer_Inst.CoInstallers]
+AddReg = USB_Inst.CoInstaller_AddReg
+CopyFiles = CopyFiles_CoInstaller
+
+[USB_Razer_Inst.Wdf]
+KmdfService = SynTP, SynTP_WdfSect
+
+;----------------------------------------------------------------------------
+; cPad
+;----------------------------------------------------------------------------
+[USB_cPad_Inst]
+include = Input.inf
+needs = HID_Inst.nt
+CopyFiles = CopyFiles_Drivers
+
+[USB_cPad_Inst.Services]
+include = Input.inf
+needs = HID_Inst.NT.Services
+AddService = SynTP,,SynTP_Service_Inst
+
+[USB_cPad_Inst.HW]
+AddReg = USB_AddReg.HW,USB_cPad_AddReg.HW
+
+[USB_cPad_AddReg.HW]
+HKR,,DisplayColumns,0x00010001,240
+HKR,,DisplayRows,0x00010001,160
+HKR,,DisplayBitplaneInfo,0x00010001,0x10000001
+HKR,,DisplayMaxBufferSize,0x00010001,4096
+
+; WDF Coinstaller installation
+[USB_cPad_Inst.CoInstallers]
+AddReg = USB_Inst.CoInstaller_AddReg
+CopyFiles = CopyFiles_CoInstaller
+
+[USB_cPad_Inst.Wdf]
+KmdfService = SynTP, SynTP_WdfSect
+
+;----------------------------------------------------------------------------
+; DisplayPad (pre-release test version)
+;----------------------------------------------------------------------------
+[USB_DisplayPad.0_Inst]
+include = Input.inf
+needs = HID_Inst.nt
+CopyFiles = CopyFiles_Drivers
+
+[USB_DisplayPad.0_Inst.Services]
+include = Input.inf
+needs = HID_Inst.NT.Services
+AddService = SynTP,,SynTP_Service_Inst
+
+[USB_DisplayPad.0_Inst.HW]
+AddReg = USB_AddReg.HW,USB_DisplayPad.0_AddReg.HW
+
+[USB_DisplayPad.0_AddReg.HW]
+HKR,,ReadVendorRequest,0x00010001,1
+HKR,,req00$cmd0000,0x00000001,00,00,06,05,62,A4,B1,00
+HKR,,req00$cmd0001,0x00000001,00,00,53,66,44,95,4C,00
+HKR,,req00$cmd0002,0x00000001,00,00,00,13,10,00,00,00
+HKR,,req00$cmd0004,0x00000001,00,02,6f,00,84,dd,2e,00
+HKR,,DisplayColumns,0x00010001,320
+HKR,,DisplayRows,0x00010001,240
+HKR,,DisplayBitplaneInfo,0x00010001,0xA0050605
+HKR,,DisplayMaxBufferSize,0x00010001,0xFFFE
+
+; WDF Coinstaller installation
+[USB_DisplayPad.0_Inst.CoInstallers]
+AddReg = USB_Inst.CoInstaller_AddReg
+CopyFiles = CopyFiles_CoInstaller
+
+[USB_DisplayPad.0_Inst.Wdf]
+KmdfService = SynTP, SynTP_WdfSect
+
+;----------------------------------------------------------------------------
+; DisplayPad (pre-release test version)
+;----------------------------------------------------------------------------
+[USB_DisplayPad_Inst]
+include = Input.inf
+needs = HID_Inst.nt
+CopyFiles = CopyFiles_Drivers
+
+[USB_DisplayPad_Inst.Services]
+include = Input.inf
+needs = HID_Inst.NT.Services
+AddService = SynTP,,SynTP_Service_Inst
+
+[USB_DisplayPad_Inst.HW]
+AddReg = USB_AddReg.HW,USB_DisplayPad_AddReg.HW
+
+[USB_DisplayPad_AddReg.HW]
+HKR,,ReadVendorRequest,0x00010001,1
+HKR,,req00$cmd0000,0x00000001,00,00,06,05,62,A4,B1,00
+HKR,,req00$cmd0001,0x00000001,00,00,53,66,44,95,4C,00
+HKR,,req00$cmd0002,0x00000001,00,00,00,13,10,00,00,00
+HKR,,req00$cmd0004,0x00000001,00,02,6f,00,84,dd,2e,00
+HKR,,DisplayColumns,0x00010001,320
+HKR,,DisplayRows,0x00010001,240
+HKR,,DisplayBitplaneInfo,0x00010001,0x80040404
+HKR,,DisplayMaxBufferSize,0x00010001,0x4B00
+
+; WDF Coinstaller installation
+[USB_DisplayPad_Inst.CoInstallers]
+AddReg = USB_Inst.CoInstaller_AddReg
+CopyFiles = CopyFiles_CoInstaller
+
+[USB_DisplayPad_Inst.Wdf]
+KmdfService = SynTP, SynTP_WdfSect
+
+;----------------------------------------------------------------------------
+; Wireless TouchPad (pre-release test version)
+;----------------------------------------------------------------------------
+[USB_WirelessTouchPad_Inst]
+include = Input.inf
+needs = HID_Inst.nt
+CopyFiles = CopyFiles_Drivers
+
+[USB_WirelessTouchPad_Inst.Services]
+include = Input.inf
+needs = HID_Inst.NT.Services
+AddService = SynTP,,SynTP_Service_Inst
+
+[USB_WirelessTouchPad_Inst.HW]
+AddReg = USB_AddReg.HW,USB_WirelessTouchPad_AddReg.HW
+
+[USB_WirelessTouchPad_AddReg.HW]
+HKR,,ReadVendorRequest,0x00010001,1
+HKR,,req00$cmd0000,0x00000001,00,00,20,06,60,10,A1,00
+HKR,,req00$cmd0001,0x00000001,00,00,55,5E,00,00,00,00
+HKR,,req00$cmd0002,0x00000001,00,00,00,53,00,00,0E,00
+HKR,,req00$cmd0003,0x00000001,00,7B,17,F0,00,00,00,00
+HKR,,req00$cmd0004,0x00000001,00,00,00,00,00,00,00,00
+HKR,,AbsoluteSuperPacketFormat,0x00010001,1
+
+; WDF Coinstaller installation
+[USB_WirelessTouchPad_Inst.CoInstallers]
+AddReg = USB_Inst.CoInstaller_AddReg
+CopyFiles = CopyFiles_CoInstaller
+
+[USB_WirelessTouchPad_Inst.Wdf]
+KmdfService = SynTP, SynTP_WdfSect
+
+;----------------------------------------------------------------------------
+; User visible strings
+;----------------------------------------------------------------------------
+
+[Strings]
+Provider = "Synaptics"
+SynMfg = "Synaptics"
+DiskName = "Synaptics Driver Installation Disk"
+
+; Driver Information Entries
+DriverMfgr="Synaptics"
+DriverVersionID="16.2.19.7"
+DriverOEM="Synaptics"
+DriverFamily="Mouse"
+DriverProduct="WDM USB HID Device"
+DriverDescription="Synaptics WDM USB HID Device Driver"
+DriverOEMVersion="16.2.19.7"
+BaseDriverFileName="SynTP.sys"
+BaseDriverFileVersion="16.2.19.7"
+
+; Device Names
+
+USB.SynDeviceDesc = "Synaptics USB Human Interface Device"
+USB_Comp.SynDeviceDesc = "Synaptics Composite USB Human Interface Device"
+
+; Service Names
+
+SynTP.SvcDesc = "Synaptics Pointing Device Driver"
+
+; Substitutable parameters
+
+SPSVCINST_TAGTOFRONT  = 0x00000001
+SPSVCINST_ASSOCSERVICE= 0x00000002
+SERVICE_KERNEL_DRIVER = 1
+SERVICE_BOOT_START    = 0
+SERVICE_SYSTEM_START  = 1
+SERVICE_AUTO_START    = 2
+SERVICE_DEMAND_START  = 3
+SERVICE_ERROR_NORMAL  = 1
+SERVICE_ERROR_IGNORE  = 0
+REG_EXPAND_SZ         = 0x00020000
+REG_DWORD             = 0x00010001
+REG_SZ                = 0x00000000
